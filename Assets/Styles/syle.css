@@ -1,0 +1,26 @@
+@import url("header.css");
+@import url("principal.css");
+@import url("footer.css");
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+:root{
+    --preto: #000000;
+    --branco: #ffffff;
+    --bg-gradient-1: #8844ee;
+    --bg-gradient-2: #b07dfb;
+    --lateral: #fafbfc;
+    --button-header: #7f4acf;
+    --button-header-hover: #492a7a;
+}
+
+body{
+    background: var(--branco);
+    overflow-x: hidden;
+}
