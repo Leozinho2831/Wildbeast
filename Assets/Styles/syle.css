@@ -18,8 +18,19 @@
     --lateral: #fafbfc;
     --button-header: #7f4acf;
     --button-header-hover: #492a7a;
+    --title: #B07DFB;
+    --text: #000000B3;
 }
 
 body{
     background: var(--branco);
+    font-family: 'Vollkorn', serif;
+}
+
+img{
+    width: 100%;
+
+    border-radius: 5px;
+    overflow-clip-margin: content-box;
+    overflow: clip;
 }
