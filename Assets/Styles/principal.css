@@ -30,7 +30,6 @@
     justify-content: center;
 
     transition: all 0.2s ease-in-out;
-    cursor: pointer;
 }
 
 .principal__links li:hover{
@@ -47,7 +46,7 @@
 }
 
 .section__principal-title h1{
-    font-size: 50px;
+    font-size: 60px;
     line-height: 1;
     font-weight: 700;
     color: var(--title);
@@ -58,6 +57,7 @@
 .section__principal-title h2{
     font-size: 15px;
     font-style: italic;
+    font-weight: lighter;
     color: var(--title);
 }
 
@@ -68,11 +68,12 @@
 
 .section__info div{
     width: 80px;
+    height: 70px;
     display: flex;
     flex-direction: column;
     margin: 0 20px 0 0;
 
-    border-radius: 3px;
+    border-radius: 3px 3px 0 0;
     color: var(--title);
     text-align: center;
     background-image: linear-gradient(135deg, 
@@ -92,14 +93,16 @@
     border-radius: 0 0 3px 3px;
     background-color: var(--branco);
     font-size: 15px;
+    box-shadow: 5px 5px 15px 0px 
+        var(--shadow);
 }
 
 .section__text,.text__tamanho, 
-.text__local, .section__infos-texts p{
+.text__local, .section__infos-text p{
     font-size: 20px;
     color: var(--text);
 
-    margin: 0 0 30px 0;
+    margin: 30px 0 30px 0;
 }
 
 .lobo-1, .lobo-2, .lobo-3{
@@ -111,7 +114,7 @@
     color: var(--title);
 }
 
-.section__infos-title{
+.section__citação{
     padding: 30px;
     margin: 0 0 30px 0;
 
@@ -125,10 +128,14 @@
         var(--shadow);
 }
 
-.section__infos-title h1{
+.section__citação h1{
+    max-width: 600px;
+    margin: 0 auto;
+
     font-size: 24px;
     font-style: italic;
     font-weight: lighter;
+    text-align: center;
 }
 
 .section__list{
@@ -157,35 +164,151 @@
 }
 
 .principal__anuncios{
+    padding: 30px;
     display: flex;
-    align-items: center;
-    padding: 30px 0;
+    flex-direction: column;
 
     background-color: var(--lateral);
 }
 
-.principal__anuncios img{
-    max-width: 400px;
-    max-height: 300px;
-    min-width: 280px;
-    min-height: 220px;
-    margin: 20px;
+@media (min-width: 400px){
+
+    .principal__anuncios{
+        display: grid;
+        gap: 30px;
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 @media (min-width: 750px){
 
+    .principal{
+        display: grid;
+        grid-template: 
+        "sidenav main"
+        "sidenav anuncios";
+    }
+
+    .principal__nav{
+        grid-area: sidenav;
+    }
+
+    .section{
+        grid-area: main;
+    }
+
+    .principal__anuncios{
+        grid-area: anuncios;
+    }
+
+    .principal__links{
+        flex-direction: column;
+        padding: 30px;
+    }
+
+    .principal__links li{
+        margin: 0 0 30px 0;
+    }
+
+    .section__content{
+        display: grid;
+        gap: 30px;
+        grid-template: 
+        "title info" 
+        "text text" 
+        / 1fr 1fr;
+    }
+
+    .section__principal-title{
+        grid-area: title;
+    }
+
+    .section__info{
+        grid-area: info;
+        padding: 0;
+    }
+
+    .section__text{
+        grid-area: text;
+    }
+
+    .principal__article{
+        display: grid;
+        grid-gap: 5px 30px;
+        align-items: center;
+        grid-template-areas: 
+        "lobo-1 origem" 
+        "lobo-1 lobo-2" 
+        "tamanho local";
+    }
+
+    .lobo-1{
+        grid-area: lobo-1;
+        margin: 0;
+    }
+
+    .text__origem{
+        grid-area: origem;
+        font-size: 15px;
+    }
+
+    .text__origem p{
+        width: 70%;
+    }
+
+    .lobo-2{
+        grid-area: lobo-2;
+        margin: 0;
+    }
+
+    .text__tamanho{
+        grid-area: tamanho;
+    }
+
+    .text__local{
+        grid-area: local;
+    }
+
+    .section__infos{
+        display: grid;
+        gap: 30px;
+        grid-template-areas:
+        "citação citação"
+        "list infos-text"
+        "lobo-3 lobo-3";
+    }
+
+    .section__citação{
+        grid-area: citação;
+        margin: 0;
+    }
+
+    .section__list{
+        grid-area: list;
+        margin: 0;
+    }
+
+    .section__infos-text{
+        grid-area: infos-text;
+    }
+
+    .lobo-3{
+        grid-area: lobo-3;
+    }
+
 }
 
-@media (max-width:700px){
+@media (min-width:1200px){
+
+    .principal{
+        display: grid;
+        grid-template: 
+        "sidenav main anuncios"
+        / 1fr 3fr 300px;
+    }
 
     .principal__anuncios{
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .principal__anuncios img{
-        margin: 20px;
     }
 }
